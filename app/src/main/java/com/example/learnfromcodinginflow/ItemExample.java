@@ -5,11 +5,15 @@ public class ItemExample {
     private String textone;
     private String textidtwo;
 
-    public ItemExample(int imageId, String textone, String textidtwo) {
-        this.imageId = imageId;
-        this.textone = textone;
-        this.textidtwo = textidtwo;
+    public ItemExample(int mimageId, String text1, String text2) {
+        imageId = mimageId;
+        textone = text1;
+        textidtwo = text2;
     }
+    public void changeText(String text){
+        textone=text;
+    }
+
 
     public int getImageId() {
         return imageId;

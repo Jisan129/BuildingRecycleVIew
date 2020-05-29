@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private Button insert;
     private Button remove;
     private RecyclerView mrecycleview;
-    private RecyclerView.Adapter madapter;
+    private ExampleAdapter madapter;
     private RecyclerView.LayoutManager mlayoutManager;
     private EditText editInsert;
     private EditText editDelete;
@@ -76,6 +76,10 @@ public class MainActivity extends AppCompatActivity {
         madapter.notifyItemInserted(position);
     }
 
+    private void ChangeText(int position,String text){
+        itemExamples.get(position).changeText(text);
+        madapter.notifyItemChanged(position);
+    }
 
     private void creatingList() {
         itemExamples=new ArrayList<>();
@@ -94,6 +98,15 @@ public class MainActivity extends AppCompatActivity {
         mrecycleview.setLayoutManager(mlayoutManager);
         mrecycleview.setAdapter(madapter);
 
+
+
+        madapter.setOnItemClickListener(new ExampleAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                ChangeText(position,"Clicked");
+            }
+
+        });
 
     }
 
